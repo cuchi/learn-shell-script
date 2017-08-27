@@ -1,4 +1,5 @@
 # Minicurso de Shell Script
+![Creative Commons Attribution 4.0 International Public License](https://licensebuttons.net/l/by/4.0/80x15.png)
 
 ## O que é um Shell?
 O shell é uma das ferramentas mais básicas de um sistema operacional. Ele é 
