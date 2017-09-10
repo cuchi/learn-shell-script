@@ -10,7 +10,7 @@ O shell não é um software em específico, existem várias implementações
 diferentes com funcionalidades distintas:
 
 Em sistemas derivados do Unix, o *sh* e o *bash* são os shells mais
-utilizados.Há também outras implementações menos conhecidas e mais específicas,
+utilizados. Há também outras implementações menos conhecidas e mais específicas,
 como *zsh*, *fish*, *ksh*, *csh* e *tcsh*. Todos estes podem ser generalizados
 pelo termo **Unix Shells**.
 
@@ -34,7 +34,7 @@ execute nele.
 Ao acessar o shell nos deparamos com a mensagem de _prompt_, que precede o campo
 para entrar com os comandos:
 
-_[imagem da mensagem de prompt]_
+![prompt](https://i.imgur.com/H53X4VF.png)
 
 ## Comandos
 O shell faz o trabalho de mapear e disponibilizar os comandos disponíveis do
@@ -61,20 +61,59 @@ type is a shell builtin
 No exemplo acima, `man` é um binário executável que está no diretório
 `/usr/bin`, enquanto `type` e `echo` são funções _builtins_ do shell.
 
-### Interagindo entre arquivos diretórios
+### Comandos básicos
 Os comandos à seguir estão presentes em qualquer sistema derivado do Unix, com
-eles é possível interagir e navegar entre arquivos e diretórios:
+eles é possível interagir e navegar entre arquivos e diretórios e ter acesso a
+informações básicas:
 
-| Comando    | Descrição                            |
-| ---------- | ------------------------------------ |
-| `ls`       | Lista o conteúdo do diretório atual  |
-| `pwd`      | Mostra o caminho do diretório atual  |
-| `cd`       | Navega entre diretórios              |
-| `mkdir`    | Cria diretórios                      |
-| `cp`       | Copia arquivos e diretórios          |
-| `rm`       | Remove arquivos e diretórios         |
-| `mv`       | Move arquivos e diretórios           |
-| `cat`      | Mostra o conteúdo de arquivos        |
+| Comando    | Descrição                                        |
+| ---------- | -------------------------------------------------|
+| `ls`       | Lista o conteúdo do diretório atual              |
+| `cd`       | Navega entre diretórios                          |
+| `mkdir`    | Cria diretórios                                  |
+| `cp`       | Copia arquivos e diretórios                      |
+| `rm`       | Remove arquivos e diretórios                     |
+| `mv`       | Move arquivos e diretórios                       |
+| `cat`      | Mostra o conteúdo de arquivos                    |
+| `pwd`      | Mostra o caminho do diretório atual              |
+| `echo`     | Imprime mensagem de texto                        |
+| `whoami`   | Mostra o nome do usuário atual                   |
+| `uname`    | Mostra informações do sistema operacional        |
+| `man`      | Mostra o manual de referência de comandos e APIs |
+
+Todos os comandos podem possuir **parâmetros** e **modificadores**, como por
+exemplo, o comando `ls`:
+
+```
+user@debian:~$ ls
+Desktop  Downloads
+
+user@debian:~$ ls -l
+drwxr-xr-x 2 user user 4096 Sep 10 17:59 Desktop
+drwxr-xr-x 2 user user 4096 Sep 10 17:59 Downloads
+
+user@debian:~$ ls -la
+drwx------ 4 user user 4096 Sep 10 17:59 .
+drwxr-xr-x 5 root root 4096 Sep 10 17:58 ..
+-rw-r--r-- 1 user user   21 Feb 14  2017 .bash_logout
+-rw-r--r-- 1 user user   57 Feb 14  2017 .bash_profile
+-rw-r--r-- 1 user user  141 Feb 14  2017 .bashrc
+drwxr-xr-x 2 user user 4096 Sep 10 17:59 Desktop
+drwxr-xr-x 2 user user 4096 Sep 10 17:59 Downloads
+
+user@debian:~$ ls Downloads
+learn-shell-script.zip
+```
+
+No exemplo acima o comando `ls` é chamado com dois modificadores diferentes, o
+`l` e o `a`, é possível ver também que é possível passar um diretório como
+parâmetro.
+* Dica: Veja o manual de referẽncia do comando `ls` para descobrir a
+finalidade dos modificadores (`-l` e `-a`) utilizados acima.
+
+## Variáveis
+Assim como linguagens imperativas, o shell também oferece variáveis, que podem
+ser atribuídas e usadas da seguinte maneira:
 
 ## Operadores
 
