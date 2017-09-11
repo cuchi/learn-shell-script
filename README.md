@@ -39,7 +39,7 @@ para entrar com os comandos:
 ## Comandos
 O shell faz o trabalho de mapear e disponibilizar os comandos disponíveis do
 sistema operacional, estes comandos podem ser:
-* Aplicações executáveis (mapeadas pela variável de ambiente `PATH`, que veremos à seguir)
+* Aplicações executáveis (mapeadas pela variável de ambiente `PATH`, que veremos a seguir)
 * Funções internas do shell (_builtins_)
 * Funções criadas pelo usuário
 * _Aliases_
@@ -62,7 +62,7 @@ No exemplo acima, `man` é um binário executável que está no diretório
 `/usr/bin`, enquanto `type` e `echo` são funções _builtins_ do shell.
 
 ### Comandos básicos
-Os comandos à seguir estão presentes em qualquer sistema derivado do Unix, com
+Os comandos a seguir estão presentes em qualquer sistema derivado do Unix, com
 eles é possível interagir e navegar entre arquivos e diretórios e ter acesso a
 informações básicas:
 
@@ -108,7 +108,7 @@ learn-shell-script.zip
 No exemplo acima o comando `ls` é chamado com dois modificadores diferentes, o
 `l` e o `a`, nota-se que também é possível passar um diretório como
 parâmetro.
-* Dica: Veja o manual de referẽncia do comando `ls` para descobrir a
+* Dica: Veja o manual de referência do comando `ls` para descobrir a
 finalidade dos modificadores (`-l` e `-a`) utilizados acima.
 
 ## Variáveis
