@@ -140,9 +140,48 @@ Olá, agora são 10:12 horas do dia 11/09/2017.
 As duas maneiras acima, utilizando `` ` ` `` e `$()` são equivalentes.
 
 ### Variáveis de Ambiente
+No shell, há um conjunto de variáveis pré-definidas que são responsáveis por
+passar informações relevantes a programas executados por ele. Essas variáveis
+podem ser visualizadas com o comando `env`.
 
+A definição das variáveis de ambiente dependem de quais arquivos são carregados
+com a inicialização do shell. No **bash** [isso é um pouco complicado](https://askubuntu.com/a/463479),
+mas se você quiser modificar ou criar uma nova variável de ambiente a nível de
+usuário, provavelmente você irá querer modificar os arquivos `.profile` ou
+`.bashrc`.
 
+## Redirecionamento de IO
+O redirecionamento de entrada e saída dos comandos é uma funcionalidade bastante
+útil do shell script, com ela é possível manipular o fluxo da informação de uma
+maneira fácil.
 
-## Operadores
+Os operadores que iremos utilizar são:
 
+| Operador   | Descrição                                            |
+| ---------- | -----------------------------------------------------|
+| `>`        | Redirecionar saída para arquivo (sobrescrever)       |
+| `>>`       | Redirecionar saída para arquivo (inserir no final)   |
+| `|`        | Redirecionar saída como entrada do próximo comando   |
+| `<`        | Redirecionar o arquivo com entrada para o comando    |
 
+A linha abaixo escreve no arquivo `processos.txt` a tabela atual de processos:
+```
+user@debian:~$ ps -aux > processos.txt
+```
+Se o arquivo não existir, ele será automaticamente criado. Se existir, seu
+conteúdo será substituído pela saída do comando.
+
+Vamos supor que esse arquivo será utilizado para algo importante, nesse caso,
+podemos anotar a data no final dele para informar quando o conteúdo foi
+extraído:
+```
+user@debian:~$ echo "Tabela extraída em $(date)" >> processos.txt
+```
+
+Vamos supor também que você quer enviar esse arquivo por e-mail, isso é
+possível:
+```
+user@debian:~$ mail -s "Processos" email@domain.com < processos.txt
+```
+
+## Estruturas de controle
