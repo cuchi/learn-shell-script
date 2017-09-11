@@ -1,6 +1,6 @@
 # Cadastro de Pokémons
 
-Neste exercício, criaremos dois pequenos scripts: `cadastrar.sh` e `visualizar.sh`.
+Neste exercício, criaremos dois pequenos scripts: `cadastrar.sh` e `consultar.sh`.
 O objetivo é permitir gravar em um arquivo de texto os dados sobre um determinado
 Pokémon e depois ser capaz de listar esses dados.
 
@@ -16,11 +16,11 @@ Pokémon e depois ser capaz de listar esses dados.
 
 - Use `read` para ler os dados
 
-### `visualizar.sh`
+### `consultar.sh`
 
-- Deve abrir o `pokemon.txt` e imprimir seu conteúdo na tela. Você pode brincar de tentar formatar a saída!
+- Deve ser chamado como `./consultar.sh Nome`
+- Deve abrir o `pokemon.txt` e retornar a linha correspondente ao Pokémon
 
 #### Dica:
 
-- Você pode usar o comando `cat`
-- Se quiser, pode usar `grep` para consultar os dados de algum Pokémon específico
+- Você pode usar o comando `cat` para ler e `grep` para filtrar
