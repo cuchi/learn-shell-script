@@ -115,6 +115,34 @@ finalidade dos modificadores (`-l` e `-a`) utilizados acima.
 Assim como linguagens imperativas, o shell também oferece variáveis, que podem
 ser atribuídas e usadas da seguinte maneira:
 
+```
+user@debian:~$ assunto="shell script"
+
+user@debian:~$ echo "Olá, vamos falar de $assunto?"
+Olá, vamos falar de shell script?
+```
+
+* Note que não podem haver espaços entre o operador de atribuição (`=`), caso
+contrário o shell interpretaria `assunto` como um comando, o que não é o que
+desejamos.
+
+Também é bastante útil também atribuir a saída de comandos à variáveis:
+
+```
+user@debian:~$ hoje=$(date +%d/%m/%Y)
+
+user@debian:~$ agora=`date +%H:%M`
+
+user@debian:~$ echo "Olá, agora são $agora horas do dia $hoje."
+Olá, agora são 10:12 horas do dia 11/09/2017.
+```
+
+As duas maneiras acima, utilizando `` ` ` `` e `$()` são equivalentes.
+
+### Variáveis de Ambiente
+
+
+
 ## Operadores
 
 
