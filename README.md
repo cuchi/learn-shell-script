@@ -150,19 +150,34 @@ mas se você quiser modificar ou criar uma nova variável de ambiente a nível d
 usuário, provavelmente você irá querer modificar os arquivos `.profile` ou
 `.bashrc`.
 
+Há também variáveis especiais, como por exemplo o `$RANDOM`, que retorna um
+número aleatório a cada chamada, o `$?`, que guarda o código de saída do último
+comando e o `$$`, que guarda o ID de processo do shell.
+
 ## Redirecionamento de IO
+### `stdin`, `stdout` e `stderr`
+Chamamos de `stdin` a entrada padrão de dados de um processo.
+
+Chamamos de `stdout` e `stderr` todo o texto que o processo imprime de volta
+para o shell. A diferença desses dois canais é que o `stderr` é
+convencionalmente utilizado para imprimir erros.
+
+### Operadores
 O redirecionamento de entrada e saída dos comandos é uma funcionalidade bastante
 útil do shell script, com ela é possível manipular o fluxo da informação de uma
 maneira fácil.
 
 Os operadores que iremos utilizar são:
 
-| Operador   | Descrição                                            |
-| ---------- | -----------------------------------------------------|
-| `>`        | Redirecionar saída para arquivo (sobrescrever)       |
-| `>>`       | Redirecionar saída para arquivo (inserir no final)   |
-| `|`        | Redirecionar saída como entrada do próximo comando   |
-| `<`        | Redirecionar o arquivo com entrada para o comando    |
+| Operador   | Descrição                                               |
+| ---------- | --------------------------------------------------------|
+| `>`        | Redirecionar `stdout` para arquivo (sobrescrever)       |
+| `>>`       | Redirecionar `stdout` para arquivo (inserir no final)   |
+| ` | `      | Redirecionar `stdout` como `stdin` do próximo comando   |
+| `<`        | Redirecionar o arquivo com `stdin` para o comando       |
+| `2>`       | Redirecionar `stderr` para arquivo (sobrescrever)       |
+| `2>>`      | Redirecionar `stderr` para arquivo (inserir no final)   |
+| `2>&1|`    | Redirecionar `stderr` como `stdin` do próximo comando   |
 
 A linha abaixo escreve no arquivo `processos.txt` a tabela atual de processos:
 ```
@@ -179,9 +194,58 @@ user@debian:~$ echo "Tabela extraída em $(date)" >> processos.txt
 ```
 
 Vamos supor também que você quer enviar esse arquivo por e-mail, isso é
-possível:
+possível com:
 ```
 user@debian:~$ mail -s "Processos" email@domain.com < processos.txt
 ```
 
+Para o operador de pipe - ` | `, podemos utilizar o seguinte exemplo, suponhando
+que o arquivo `lista_de_compras.txt` seja uma lista com um tamanho considerável:
+```
+user@debian:~$ cat lista_de_compras.txt
+Abacaxi
+Arroz
+Banana
+Couve
+...
+
+user@debian:~$ cat lista_de_compras.txt | shuf | head -n 3
+Pão
+Leite
+Ovo
+
+user@debian:~$ cat lista_de_compras.txt | shuf | head -n 3
+Arroz
+Iogurte
+Maçã
+```
+O que acontece acima? Neste exemplo podemos ver que 3 comandos são chamados, mas
+o que eles fazem, em qual ordem?
+
+Para ter uma ideia, procure saber o que os comandos `shuf` e `head` fazem, você
+pode consultar com o comando `man` ou pesquisar, fica a seu critério.
+
+Experimente criar sua lista e testar o pipe com ambos os comandos separadamente
+para ver o que acontece:
+```
+user@debian:~$ cat lista.txt | shuf
+...
+
+user@debian:~$ cat lista.txt | head -n 3
+...
+```
+
+Mas afinal, o que o pipe faz?
+
+### `stdin`, `stdout` e `stderr`
+Chamamos de `stdin` a entrada padrão de dados de um processo, ou seja, no
+no exemplo do `mail < processos.txt`, podemos dizer que o arquivo
+`processos.txt` é direcionado para o `stdin` do comando `mail`.
+
+Chamamos de `stdout` e `stderr` todo o texto que o processo imprime de volta
+para o shell. A diferença desses dois canais é que o `stderr` é
+convencionalmente utilizado para imprimir erros.
+
 ## Estruturas de controle
+
+## Criando Scripts
