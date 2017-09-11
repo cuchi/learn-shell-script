@@ -183,7 +183,7 @@ A linha abaixo escreve no arquivo `processos.txt` a tabela atual de processos:
 ```
 user@debian:~$ ps -aux > processos.txt
 ```
-Se o arquivo não existir, ele será automaticamente criado. Se existir, seu
+Se o arquivo não existir, ele será automaticamente criado no diretório atual. Se existir, seu
 conteúdo será substituído pela saída do comando.
 
 Vamos supor que esse arquivo será utilizado para algo importante, nesse caso,
@@ -199,7 +199,7 @@ possível com:
 user@debian:~$ mail -s "Processos" email@domain.com < processos.txt
 ```
 
-Para o operador de pipe - ` | `, podemos utilizar o seguinte exemplo, suponhando
+Para o operador de pipe `|`, podemos utilizar o seguinte exemplo, supondo
 que o arquivo `lista_de_compras.txt` seja uma lista com um tamanho considerável:
 ```
 user@debian:~$ cat lista_de_compras.txt
@@ -223,9 +223,9 @@ O que acontece acima? Neste exemplo podemos ver que 3 comandos são chamados, ma
 o que eles fazem, em qual ordem?
 
 Para ter uma ideia, procure saber o que os comandos `shuf` e `head` fazem, você
-pode consultar com o comando `man` ou pesquisar, fica a seu critério.
+pode consultar com o comando `man`.
 
-Experimente criar sua lista e testar o pipe com ambos os comandos separadamente
+Experimente criar sua própria lista e testar o operador `|` (pipe) com ambos os comandos separadamente
 para ver o que acontece:
 ```
 user@debian:~$ cat lista.txt | shuf
