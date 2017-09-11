@@ -7,7 +7,7 @@ responsável por interpretar comandos e acessar recursos como diretórios,
 arquivos, executáveis e processos.
 
 O shell não é um software em específico, existem várias implementações
-diferentes com funcionalidades distintas:
+diferentes com funcionalidades distintas.
 
 Em sistemas derivados do Unix, o *sh* e o *bash* são os shells mais
 utilizados. Há também outras implementações menos conhecidas e mais específicas,
@@ -42,8 +42,8 @@ sistema operacional, estes comandos podem ser:
 * Aplicações executáveis (mapeadas pela variável de ambiente `PATH`, que veremos à seguir)
 * Funções internas do shell (_builtins_)
 * Funções criadas pelo usuário
-* Aliases
-* Keywords
+* _Aliases_
+* _Keywords_
 
 Para verificar se um determinado comando existe e pra ver o tipo dele, utilize o
 comando `type`:
@@ -106,7 +106,7 @@ learn-shell-script.zip
 ```
 
 No exemplo acima o comando `ls` é chamado com dois modificadores diferentes, o
-`l` e o `a`, é possível ver também que é possível passar um diretório como
+`l` e o `a`, nota-se que também é possível passar um diretório como
 parâmetro.
 * Dica: Veja o manual de referẽncia do comando `ls` para descobrir a
 finalidade dos modificadores (`-l` e `-a`) utilizados acima.
@@ -122,11 +122,11 @@ user@debian:~$ echo "Olá, vamos falar de $assunto?"
 Olá, vamos falar de shell script?
 ```
 
-* Note que não podem haver espaços entre o operador de atribuição (`=`), caso
+* Note que não podem haver espaços antes ou depois do operador de atribuição (`=`), caso
 contrário o shell interpretaria `assunto` como um comando, o que não é o que
 desejamos.
 
-Também é bastante útil também atribuir a saída de comandos à variáveis:
+Também é bastante útil atribuir a saída de comandos a variáveis:
 
 ```
 user@debian:~$ hoje=$(date +%d/%m/%Y)
