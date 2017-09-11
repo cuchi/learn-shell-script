@@ -1,6 +1,6 @@
-# Operador de pipe - `|`
+# Desafio
 
-Neste exercício temos um arquivo `auth.log`, nele estão registradas as
+Para este desafio temos um arquivo `auth.log`, nele estão registradas as
 tentativas de acesso à um servidor.
 
 Para cada tentativa com senha do usuário root inválida, o registro fica no
@@ -16,6 +16,6 @@ Aug 27 07:08:54 ubuntu69 sshd[32453]: Failed password for invalid user support f
 ```
 
 Tendo isso em mente, seu objetivo é extrair os seguintes dados:
-* Lista de ips que tentaram (sem sucesso) acessar o servidor
-* Lista de nomes inválidos que foram utilizados como tentativa
-* Número total de tentativas de acesso
+* Gravar num arquivo a lista de IP's que tentaram (sem sucesso) acessar o servidor
+* Gravar num arquivo a lista de nomes inválidos que foram utilizados como tentativa
+* Exibir o número total de tentativas de acesso mal sucedidas
