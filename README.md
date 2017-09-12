@@ -173,11 +173,11 @@ Os operadores que iremos utilizar são:
 | ---------- | --------------------------------------------------------|
 | `>`        | Redirecionar `stdout` para arquivo (sobrescrever)       |
 | `>>`       | Redirecionar `stdout` para arquivo (inserir no final)   |
-| ` | `      | Redirecionar `stdout` como `stdin` do próximo comando   |
+| `\|`       | Redirecionar `stdout` como `stdin` do próximo comando   |
 | `<`        | Redirecionar o arquivo com `stdin` para o comando       |
 | `2>`       | Redirecionar `stderr` para arquivo (sobrescrever)       |
 | `2>>`      | Redirecionar `stderr` para arquivo (inserir no final)   |
-| `2>&1|`    | Redirecionar `stderr` como `stdin` do próximo comando   |
+| `2>&1\|`   | Redirecionar `stderr` como `stdin` do próximo comando   |
 
 A linha abaixo escreve no arquivo `processos.txt` a tabela atual de processos:
 ```
